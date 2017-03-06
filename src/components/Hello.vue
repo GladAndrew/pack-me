@@ -4,9 +4,7 @@
 		<hr />
 		<div>
 			Im going to 
-			<select v-model='country'>
-				<option v-for='c in countries' :value='c.id'>{{c.name}}</option>
-			</select>
+			<Form />
 			<template v-if='country'>
 				<hr/>
 				<br/> In {{country}} you will need
@@ -23,6 +21,7 @@
 
 <script>
 	import { countries, pack } from '../service/packService';
+	import Form from './Form';
 
 	export default {
 		name: 'hello',
@@ -33,6 +32,7 @@
 				countries
 			};
 		},
+		components: { Form },
 		computed: {
 			things() { return pack(this.country); }
 		}
